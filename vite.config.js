@@ -9,4 +9,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    host: true, // Allows access from local network
+    port: 3000, // Sets the server to use port 3000
+  },
 });

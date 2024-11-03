@@ -1,14 +1,52 @@
 import "./App.css";
-import { Button } from "./components/ui/button";
-import HeroSection from "./components/HeroSection";
+import Login from "./components/auth/Login";
+import Signup from "./components/auth/Signup";
+import Home from "./components/Home/Home";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import About from "./components/Home/About";
+
 function App() {
-  return (
-    <div className="bg-black h-screen flex justify-center items-center text-white flex-col text-3xl gap-5">
-      <h1>Advitiya 2k24 🔥🔥🔥🔥🔥🔥🔥</h1>
-      <Button variant="destructive"> Get started !</Button>
-      <HeroSection />
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <>
+          <Navbar />
+          <Home />
+        </>
+      ),
+    },
+    {
+      path: "/login",
+      element: (
+        <>
+          <Navbar />
+          <Login />
+        </>
+      ),
+    },
+    {
+      path: "/signup",
+      element: (
+        <>
+          <Navbar />
+          <Signup />
+        </>
+      ),
+    },
+    {
+      path: "/about",
+      element: (
+        <>
+          <Navbar />
+          <About />
+        </>
+      ),
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;
